@@ -5,7 +5,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <div class="center-frame">
         <div class="wild-frame">
-            <img src="http://www.getdigital.de/images/produkte/t2/t2_kochbuchgeeks.jpg" border="50" width="750" height="950" alt="t2_kochbuchgeeks">
+            <div align="center">
+                <img src="http://www.getdigital.de/images/produkte/t2/t2_kochbuchgeeks.jpg" border="50" width="750" height="950" alt="t2_kochbuchgeeks">
+            </div>
         </div>
     </div>
 </head>
@@ -30,6 +32,9 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('signOut') }}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recipes/list">Rezepte</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/recipes/create">Rezepte hochladen</a>

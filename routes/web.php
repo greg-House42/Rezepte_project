@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +20,10 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signOut', [CustomAuthController::class, 'signOut'])->name('signOut');
+Route::get('signOut', [CustomAuthController::class, 'signOut'])->name('signOut');
 Route::resource('recipes', 'App\Http\Controllers\RecipeController');
-Route::get('recipes/create', function () {
-
-    $recipes = DB::table('recipes')->get();
-
-    return view('recipes.create', ['output' => $recipes]);
-});
+Route::post('recipes/create', [RecipeController::class, 'store'])->name('store');
+Route::get('recipes/list', [RecipeController::class, 'index'])->name('index');
 Route::get('/', function () {
     return view('welcome');
 });

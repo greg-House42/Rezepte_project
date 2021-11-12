@@ -12,36 +12,21 @@ class RecipeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
         $recipe = DB::table('recipes')->get();
-        foreach($recipe as $key => $output)
-        {
-            //to get each columns value
-            //$value->name
-            $output->id;
-            $output->titel;
-            $output->description;
-            //$output->file_path;
-        }
-        return view('recipes.create')->with('output', $recipe);
 
-        //$recipe = DB::table('recipes')->select('id','titel','description')->get();
+        return view('recipes.list', ['output' => $recipe]);
 
-        //return view('recipes.create')->with('output', $recipe);
-
-        //$recipe = DB::table('recipes')->get();
-
-        //return view('recipes.create')->with('output', $recipe);
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-    /**
+     * /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -63,29 +48,26 @@ class RecipeController extends Controller
         // Validate the inputs
         $request->validate([
             'titel' => 'required|nullable',
-            'description'=> 'required|nullable'
+            'description'=> 'required|nullable',
+            'ingredients' => 'required|nullable'
         ]);
 
         // ensure the request has a file before we attempt anything else.
-        if ($request->hasFile('file')) {
 
-            $request->validate([
-                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-            ]);
 
-            // Save the file locally in the storage/public/ folder under a new folder named /recipes
-            $request->file->store('recipes', 'public');
 
             // Store the record, using the new file hashname which will be it's new filename identity.
             $Recipe = new Recipe([
-                "description" => $request->get('description'),
-                "titel" => $request->get('titel'),
-                "file_path" => $request->file->hashName()
+                "description" => $request->description,
+                "titel" => $request->titel,
+                "ingredients" => $request->ingredients
             ]);
             $Recipe->save(); // Finally, save the record.
-        }
 
-        return view('recipes.create');
+        //ToDo
+        //if ($request->hasFile('file')) {}
+
+        return view('recipes.list');
 
     }
 

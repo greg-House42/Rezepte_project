@@ -31,7 +31,7 @@
         @endif
 
             <div>
-                <form action="{{ route('recipes.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('recipes.index') }}" method="get" enctype="multipart/form-data">
                     <!-- Add CSRF Token -->
                     @csrf
                     <div class="form-group">
@@ -53,4 +53,4 @@
                 </form>
             </div>
         </body>
-    </html>
+</html>

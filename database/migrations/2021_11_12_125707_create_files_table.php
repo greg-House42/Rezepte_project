@@ -4,22 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecipesTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
-
     public function up()
     {
-        Schema::create('recipes', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('titel');
-            $table->text('recipes');
-            $table->text('ingredients');
+            $table->string('file_path');
+            $table->foreign('id')->references('id')->on('recipes');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateRecipesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recipes');
+        Schema::dropIfExists('files');
     }
 }
