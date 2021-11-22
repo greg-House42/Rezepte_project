@@ -69,7 +69,7 @@ class RecipeController extends Controller
             $path = substr($filename, 2);
 
             IlluminateFile::makeDirectory(storage_path() . '/' . $path);
-            IlluminateFile::move($request->file()->getRealPath(), storage_path(). '/' . $path . '/' . $filename);
+            IlluminateFile::move($request->file->getRealPath(), storage_path(). '/' . $path . '/' . $filename);
 
             $file = new File();
             $file->recipe_id = $recipe->id;
