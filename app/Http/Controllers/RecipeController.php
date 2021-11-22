@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,8 @@ class RecipeController extends Controller
         $request->validate([
             'titel' => 'required|nullable',
             'description'=> 'required|nullable',
-            'ingredients' => 'required|nullable'
+            'ingredients' => 'required|nullable',
+            'file' => 'mimes:jpg,bmp,png',
         ]);
 
         // ensure the request has a file before we attempt anything else.
@@ -56,15 +58,22 @@ class RecipeController extends Controller
 
 
             // Store the record, using the new file hashname which will be it's new filename identity.
-            $Recipe = new Recipe([
+            $recipe = new Recipe([
                 "description" => $request->description,
                 "titel" => $request->titel,
-                "ingredients" => $request->ingredients
+                "ingredients" => $request->ingredients,
             ]);
-            $Recipe->save(); // Finally, save the record.
+            $recipe->save(); // Finally, save the record.
+
+        $file = new File();
+        if ($request->hasFile('file')) {
+            $file->recipe_id = $recipe->id;
+            $file->file_path = $file->path;
+            $file->save(); // Finally, save the record.
+        }
 
         //ToDo
-        //if ($request->hasFile('file')) {}
+        //
 
         return redirect(route('recipes.index'));
 

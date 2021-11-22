@@ -48,8 +48,8 @@
                     </div>
                     <div class="form-group">
                         <input type="file" name="file">
-                        <input type="image" name="image">
                     </div>
+                    <button type="submit">Submit</button>
                     <li class="nav-item">
                         <a class="nav-link" href="/recipes/list">Rezepte</a>
                     </li>

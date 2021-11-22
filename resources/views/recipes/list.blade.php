@@ -55,7 +55,6 @@
                             <div class="form-group">
                                 <label>Bilder:      </label>
                                 @foreach($data->images as $image)
-
                                 <td><img src="{{base_path($image->file_path)}}" ></td>
                                 @endforeach
                             </div>
