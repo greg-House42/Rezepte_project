@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File as IlluminateFile;
 
 
 class RecipeController extends Controller
@@ -55,8 +56,6 @@ class RecipeController extends Controller
 
         // ensure the request has a file before we attempt anything else.
 
-
-
             // Store the record, using the new file hashname which will be it's new filename identity.
             $recipe = new Recipe([
                 "description" => $request->description,
@@ -64,11 +63,17 @@ class RecipeController extends Controller
                 "ingredients" => $request->ingredients,
             ]);
             $recipe->save(); // Finally, save the record.
-
-        $file = new File();
+            //dd($request->file());
         if ($request->hasFile('file')) {
+            $filename = uniqid();
+            $path = substr($filename, 2);
+
+            IlluminateFile::makeDirectory(storage_path() . '/' . $path);
+            IlluminateFile::move($request->file()->getRealPath(), storage_path(). '/' . $path . '/' . $filename);
+
+            $file = new File();
             $file->recipe_id = $recipe->id;
-            $file->file_path = $file->path;
+            $file->file_path = $filename;
             $file->save(); // Finally, save the record.
         }
 
