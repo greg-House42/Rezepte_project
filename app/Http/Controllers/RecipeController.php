@@ -18,8 +18,7 @@ class RecipeController extends Controller
     public function index()
     {
         $recipe = Recipe::all();
-
-        return view('recipes.list', ['output' => $recipe]);
+        return view('recipes.list', ['recipes' => $recipe]);
 
     }
 
@@ -66,14 +65,17 @@ class RecipeController extends Controller
             //dd($request->file());
         if ($request->hasFile('file')) {
             $filename = uniqid();
-            $path = substr($filename, 2);
+            $path = substr($filename, 0, 2);
 
-            IlluminateFile::makeDirectory(storage_path() . '/' . $path);
-            IlluminateFile::move($request->file->getRealPath(), storage_path(). '/' . $path . '/' . $filename);
+
+            IlluminateFile::makeDirectory(storage_path() . '/images/' . $path);
+            IlluminateFile::move($request->file->getRealPath(), storage_path(). '/images/' . $path . '/' . $filename);
 
             $file = new File();
             $file->recipe_id = $recipe->id;
             $file->file_path = $filename;
+            //hier mime type feststellen und in Datenbank schreiben
+            //Im model mutator bauen, der anhand des mime_type die Dateiendung anhängen - anhand des mime_types in der DB - an Hash anhängen
             $file->save(); // Finally, save the record.
         }
 

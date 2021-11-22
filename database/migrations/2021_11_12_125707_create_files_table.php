@@ -17,6 +17,7 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->bigInteger('recipe_id', false, true);
             $table->string('file_path');
+            $table->string('mime_type');
             $table->foreign('recipe_id')->references('id')->on('recipes');
             $table->timestamps();
         });

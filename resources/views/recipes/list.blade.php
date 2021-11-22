@@ -34,28 +34,28 @@
                 <form action="{{ route('recipes.index') }}" method="get" enctype="multipart/form-data">
                     <!-- Add CSRF Token -->
                     @csrf
-                    @foreach($output as $data)
+                    @foreach($recipes as $recipe)
                         <tr>
                             <div class="form-group">
                                 </br><label>Nummer:    </label>
-                                <td>{{$data->id}}</td></br>
+                                <td>{{$recipe->id}}</td></br>
                             </div>
                             <div class="form-group">
                                 <label>Titel:     </label>
-                                <td>{{$data->titel}}</td></br>
+                                <td>{{$recipe->titel}}</td></br>
                             </div>
                             <div class="form-group">
                                 <label>Rezept:     </label>
-                                <td>{{$data->description}}</td></br>
+                                <td>{{$recipe->description}}</td></br>
                             </div>
                             <div class="form-group">
                                 <label>Zutaten:    </label>
-                                <td>{{$data->ingredients}}</td></br>
+                                <td>{{$recipe->ingredients}}</td></br>
                             </div>
                             <div class="form-group">
                                 <label>Bilder:      </label>
-                                @foreach($data->images as $image)
-                                <td><img src="{{base_path($image->file_path)}}" ></td>
+                                @foreach($recipe->images as $image)
+                                <td><img src="{{storage_path('/images/' . $image->file_path)}}" ></td>
                                 @endforeach
                             </div>
                         </tr>
