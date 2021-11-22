@@ -15,8 +15,9 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('recipe_id', false, true);
             $table->string('file_path');
-            $table->foreign('id')->references('id')->on('recipes');
+            $table->foreign('recipe_id')->references('id')->on('recipes');
             $table->timestamps();
         });
     }

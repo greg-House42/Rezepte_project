@@ -13,7 +13,7 @@ class File extends Model
 
     public function recipe(): HasMany
     {
-        return $this->hasMany(Recipe::class);
+        return $this->belongsTo(Recipe::class, 'recipe_id');
     }
 
     /*public function recipe()

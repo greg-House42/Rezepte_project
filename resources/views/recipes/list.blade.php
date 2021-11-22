@@ -34,23 +34,35 @@
                 <form action="{{ route('recipes.index') }}" method="get" enctype="multipart/form-data">
                     <!-- Add CSRF Token -->
                     @csrf
-                    <div class="form-group">
-                        <label>Titel</label>
-                        <input type="text" class="form-control" name="titel">
-                    </div>
-                    <div class="form-group">
-                        <label>Rezept</label>
-                        <input type="text" class="form-control" name="description">
-                    </div>
-                    <div class="form-group">
-                        <label>Zutaten</label>
-                        <input type="text" class="form-control" name="ingredients">
-                    </div>
-                    <div class="form-group">
-                        <input type="file" name="file">
-                    </div>
-                    <button type="submit">Submit</button>
+                    @foreach($output as $data)
+                        <tr>
+                            <div class="form-group">
+                                </br><label>Nummer:    </label>
+                                <td>{{$data->id}}</td></br>
+                            </div>
+                            <div class="form-group">
+                                <label>Titel:     </label>
+                                <td>{{$data->titel}}</td></br>
+                            </div>
+                            <div class="form-group">
+                                <label>Rezept:     </label>
+                                <td>{{$data->description}}</td></br>
+                            </div>
+                            <div class="form-group">
+                                <label>Zutaten:    </label>
+                                <td>{{$data->ingredients}}</td></br>
+                            </div>
+                            <div class="form-group">
+                                <label>Bilder:      </label>
+                                @foreach($data->images as $image)
+
+                                <td><img src="{{base_path($image->file_path)}}" ></td>
+                                @endforeach
+                            </div>
+                        </tr>
+
+                    @endforeach
                 </form>
             </div>
         </body>
-</html>
+    </html>

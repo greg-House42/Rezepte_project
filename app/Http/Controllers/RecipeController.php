@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 
 class RecipeController extends Controller
@@ -16,7 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipe = DB::table('recipes')->get();
+        $recipe = Recipe::all();
 
         return view('recipes.list', ['output' => $recipe]);
 
@@ -67,7 +66,7 @@ class RecipeController extends Controller
         //ToDo
         //if ($request->hasFile('file')) {}
 
-        return view('recipes.list');
+        return redirect(route('recipes.index'));
 
     }
 
