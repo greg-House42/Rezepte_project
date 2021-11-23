@@ -10,11 +10,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class File extends Model
 {
     use HasFactory;
-    protected $fillable = ["file_path", "created_at", "updated_at"];
+    protected $fillable = ["name", "extension", "file_path", "created_at", "updated_at"];
 
     public function recipe(): BelongsTo
     {
         return $this->belongsTo(Recipe::class, 'recipe_id');
+    }
+
+    public function setExtension($value)
+    {
+        $this->attributes['extension'] = strtolower($value);
     }
 
     /*public function recipe()

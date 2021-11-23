@@ -15,4 +15,15 @@ class Recipe extends Model
         return $this->hasMany(File::class, 'recipe_id', 'id');
     }
 
+
+    public function setExtension($value)
+    {
+        $this->attributes['extension'] = strtolower($value);
+    }
+
+    public function getExtension($value)
+    {
+        return ucfirst($value);
+    }
+
 }

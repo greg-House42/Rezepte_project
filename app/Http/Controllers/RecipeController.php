@@ -6,6 +6,8 @@ use App\Models\File;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File as IlluminateFile;
+use Illuminate\Support\Facades\Storage;
+use Mimey\MimeTypes;
 
 
 class RecipeController extends Controller
@@ -63,17 +65,42 @@ class RecipeController extends Controller
             ]);
             $recipe->save(); // Finally, save the record.
             //dd($request->file());
+
+
+
+
         if ($request->hasFile('file')) {
+
             $filename = uniqid();
             $path = substr($filename, 0, 2);
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('/images'),$filename);
+
+            //$image_path = "/images/" . $image_name;
+
+            //IlluminateFile::makeDirectory(storage_path() . '/images/' . $path);
+            IlluminateFile::move($request->file->getRealPath(), storage_path(). '/public/images/' . $path . '/' . $filename);
+            //Storage::move('old/file.jpg', 'new/file.jpg');
+            //Storage::putFile('photos', new File('/path/to/photo'), 'public/images/');
 
 
-            IlluminateFile::makeDirectory(storage_path() . '/images/' . $path);
-            IlluminateFile::move($request->file->getRealPath(), storage_path(). '/images/' . $path . '/' . $filename);
+
+
+            $originalfile = $request->file('file');
+            //$hashname = $file->hashName(); // Generate a unique, random name...
+            //$extension = $file->extension(); // Determine the file's extension based on the file's MIME type...
 
             $file = new File();
+            $name = $originalfile->getClientOriginalName();
+            $extension = $originalfile->getClientOriginalExtension();
+
             $file->recipe_id = $recipe->id;
             $file->file_path = $filename;
+            $file->name = $name;
+            $file->extension = $extension;
+
+
             //hier mime type feststellen und in Datenbank schreiben
             //Im model mutator bauen, der anhand des mime_type die Dateiendung anhängen - anhand des mime_types in der DB - an Hash anhängen
             $file->save(); // Finally, save the record.
