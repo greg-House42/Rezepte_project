@@ -55,7 +55,10 @@
                             <div class="form-group">
                                 <label>Bilder:      </label>
                                 @foreach($recipe->images as $image)
-                                <td><img src="{{('/storage/pictures/' . $image->name)}}" ></td>
+                                    <div class="bg-green-300">
+                                        <img class="object-scale-down h-48 w-48" src="{{('/storage/pictures/' . $image->name)}}" >
+                                    </div>
+{{--                                <td><img src="{{('/storage/pictures/' . $image->name)}}" ></td>--}}
                                 @endforeach
                             </div>
                         </tr>
