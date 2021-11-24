@@ -5,11 +5,11 @@
     <title>Micha's Rezept-Ecke</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <div class="center-frame">
         <div class="wild-frame">
             <div align="center">
-                <img src="http://www.getdigital.de/images/produkte/t2/t2_kochbuchgeeks.jpg" border="50" width="750" height="950" alt="t2_kochbuchgeeks">
+                <img src="http://www.getdigital.de/images/produkte/t2/t2_kochbuchgeeks.jpg" border="50" width="250" height="400" alt="t2_kochbuchgeeks">
             </div>
         </div>
     </div>

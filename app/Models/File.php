@@ -22,6 +22,11 @@ class File extends Model
         $this->attributes['extension'] = strtolower($value);
     }
 
+    public function getExtension($value)
+    {
+        return ucfirst($value);
+    }
+
     /*public function recipe()
     {
 

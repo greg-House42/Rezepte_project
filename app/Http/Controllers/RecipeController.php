@@ -72,24 +72,28 @@ class RecipeController extends Controller
         if ($request->hasFile('file')) {
 
             $filename = uniqid();
-            $path = substr($filename, 0, 2);
+
+            $path = substr($filename, 11, 2);
             $file = $request->file('file');
             $filename = $file->getClientOriginalName();
-            $file->move(public_path('/images'),$filename);
+            $file->move(storage_path('/pictures/' . $path . '/'),$filename);
 
             //$image_path = "/images/" . $image_name;
 
-            //IlluminateFile::makeDirectory(storage_path() . '/images/' . $path);
-            IlluminateFile::move($request->file->getRealPath(), storage_path(). '/public/images/' . $path . '/' . $filename);
+            //IlluminateFile::makeDirectory(storage_path() . '/pictures/' . $path);
+            //IlluminateFile::move($request->file->getRealPath(), storage_path(). '/pictures/' . $path . '/' . $filename);
             //Storage::move('old/file.jpg', 'new/file.jpg');
             //Storage::putFile('photos', new File('/path/to/photo'), 'public/images/');
 
 
 
 
+
+
+
             $originalfile = $request->file('file');
-            //$hashname = $file->hashName(); // Generate a unique, random name...
-            //$extension = $file->extension(); // Determine the file's extension based on the file's MIME type...
+            //$hashname = $originalfile->hashName(); // Generate a unique, random name...
+            //$extension = $originalfile->extension(); // Determine the file's extension based on the file's MIME type...
 
             $file = new File();
             $name = $originalfile->getClientOriginalName();
