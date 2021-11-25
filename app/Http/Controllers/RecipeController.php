@@ -52,7 +52,8 @@ class RecipeController extends Controller
             'titel' => 'required|nullable',
             'description'=> 'required|nullable',
             'ingredients' => 'required|nullable',
-            'file' => 'mimes:jpg,bmp,png',
+            'files' => 'required',
+            'files.*' =>'mimes:jpg,bmp,png',
         ]);
 
         // ensure the request has a file before we attempt anything else.
@@ -64,54 +65,39 @@ class RecipeController extends Controller
                 "ingredients" => $request->ingredients,
             ]);
             $recipe->save(); // Finally, save the record.
-            //dd($request->file());
 
 
 
+        //dd($request->file());
 
-        if ($request->hasFile('file')) {
+        if($request->hasfile('files'))
+        {
+            foreach($request->file('files') as $key => $file) {
+                $filename = uniqid();
 
-            $filename = uniqid();
+                $path = substr($filename, 11, 2);
+                $filename = $file->getClientOriginalName();
+                $file->move(storage_path('/pictures/' . $path . '/'), $filename);
+                $originalfile = $file;
 
-            $path = substr($filename, 11, 2);
-            $file = $request->file('file');
-            $filename = $file->getClientOriginalName();
-            $file->move(storage_path('/pictures/' . $path . '/'),$filename);
+                $file = new File();
+                $name = $originalfile->getClientOriginalName();
+                $extension = $originalfile->getClientOriginalExtension();
 
-            //$image_path = "/images/" . $image_name;
+                $file->recipe_id = $recipe->id;
+                $file->file_path = $filename;
+                $file->name = $name;
+                $file->extension = $extension;
 
-            //IlluminateFile::makeDirectory(storage_path() . '/pictures/' . $path);
-            //IlluminateFile::move($request->file->getRealPath(), storage_path(). '/pictures/' . $path . '/' . $filename);
-            //Storage::move('old/file.jpg', 'new/file.jpg');
-            //Storage::putFile('photos', new File('/path/to/photo'), 'public/images/');
+                //ToDo
+                //hier mime type feststellen und in Datenbank schreiben
+                //Im model mutator bauen, der anhand des mime_type die Dateiendung anhängen - anhand des mime_types in der DB - an Hash anhängen
+                $file->save(); // Finally, save the record.
+            }
 
-
-
-
-
-
-
-            $originalfile = $request->file('file');
-            //$hashname = $originalfile->hashName(); // Generate a unique, random name...
-            //$extension = $originalfile->extension(); // Determine the file's extension based on the file's MIME type...
-
-            $file = new File();
-            $name = $originalfile->getClientOriginalName();
-            $extension = $originalfile->getClientOriginalExtension();
-
-            $file->recipe_id = $recipe->id;
-            $file->file_path = $filename;
-            $file->name = $name;
-            $file->extension = $extension;
-
-
-            //hier mime type feststellen und in Datenbank schreiben
-            //Im model mutator bauen, der anhand des mime_type die Dateiendung anhängen - anhand des mime_types in der DB - an Hash anhängen
-            $file->save(); // Finally, save the record.
         }
 
-        //ToDo
-        //
+
 
         return redirect(route('recipes.index'));
 

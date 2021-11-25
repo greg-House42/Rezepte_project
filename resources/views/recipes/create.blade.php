@@ -46,26 +46,24 @@
                         <label>Zutaten</label>
                         <input type="text" class="form-control" name="ingredients">
                     </div>
-                    <form name="save-multiple-files" method="POST"  action="{{ route('recipes.store') }}" accept-charset="utf-8" enctype="multipart/form-data">
+                    <div class="row">
 
-                        @csrf
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="file" name="files[]" placeholder="Choose files" multiple >
-                                </div>
-                                @error('files')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="file" name="files[]" placeholder="Choose files" multiple >
                             </div>
-
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                            </div>
+                            @error('files')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                    </form>
+
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                        </div>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recipes/list">Rezepte</a>
+                    </li>
                 </form>
             </div>
         </body>
