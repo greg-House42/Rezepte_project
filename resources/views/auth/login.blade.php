@@ -2,11 +2,11 @@
 
 @section('content')
     <main class="login-form">
-        <div class="container">
+        <div class="container mx-px">
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
-                        <h3 class="card-header text-center">Login</h3>
+                        <h3 class="card-header text">Login</h3>
                         <div class="card-body">
                             <form method="POST" action="{{ route('login.custom') }}">
                                 @csrf
