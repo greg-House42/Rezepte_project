@@ -6,9 +6,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
-                        <h3 class="card-header text">Rezepte zum Nachkochen:</h3>
+                        <h1 class="text-4xl font-bold text-white text">Rezepte zum Nachkochen:</h1>
                          <div class="card-body">
-
                             <form action="{{ route('recipes.index') }}" method="get" enctype="multipart/form-data">
                                 <!-- Add CSRF Token -->
                                 @csrf
