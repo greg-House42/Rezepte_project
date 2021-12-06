@@ -43,8 +43,8 @@
                                                             <br class="col-md-12">
                                                                 <button type="submit" class="btn btn-primary" id="submit"><u>Submit</u></button>
                                                             </div>
-                                                            <li class="nav-item">
-                                                                </br><a class="nav-link" href="/recipes/list"><u class="text-4xl font-bold text-blue-200 text">Rezepte zum Nachkochen - hier klicken</u></a>
+                                                            <li class="nav-item text-4xl font-bold text-blue-200">
+                                                                <a class="nav-link" href="/recipes/list"><u class="text-4xl font-bold text-blue-200 text">Rezepte zum Nachkochen - hier klicken</u></a>
                                                             </li>
                                                     </form>
                                                 </div>
