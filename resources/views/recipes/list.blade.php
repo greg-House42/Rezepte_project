@@ -34,14 +34,6 @@
                                                         <p class="text-4xl font-bold text-white text" align="center">Rezept:    </p>
                                                         <td>{{$recipe->description}}</td></br>
                                                     </div>
-                                                    <!-- login card -->
-                                                    <div class="fixed h-full w-full flex items-center justify-center bg-opacity-50 bg-gray-700">
-                                                        <div class="z-10">
-                                                            <div id="login-card"
-                                                                 class="w-56 h-64 text-center bg-orange-500 rounded-lg"
-                                                            ><p>Hi</p></div>
-                                                        </div>
-                                                    </div>
                                                     <div class="form-group" align="center">
                                                         <p style="text-align:center">
                                                             <div class="text-4xl font-bold text-white text" align="center">Zutaten:    </div>
