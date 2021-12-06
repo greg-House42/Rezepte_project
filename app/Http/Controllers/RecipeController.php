@@ -77,7 +77,7 @@ class RecipeController extends Controller
 
                 $path = substr($filename, 11, 2);
                 $filename = $file->getClientOriginalName();
-                $file->move(storage_path('/pictures/' . $path . '/'), $filename);
+                $file->move(public_path('/storage/pictures/' . $path . '/'), $filename);
                 $originalfile = $file;
 
                 $file = new File();
@@ -85,6 +85,7 @@ class RecipeController extends Controller
                 $extension = $originalfile->getClientOriginalExtension();
 
                 $file->recipe_id = $recipe->id;
+                $file->path = $path;
                 $file->file_path = $filename;
                 $file->name = $name;
                 $file->extension = $extension;

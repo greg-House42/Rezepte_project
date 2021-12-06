@@ -14,7 +14,7 @@ class MakeDescriptionNullableOnRecipesTable extends Migration
     public function up()
     {
         Schema::table('recipes', function (Blueprint $table) {
-            $table->string('description')->nullable()->change();
+            $table->longText('description')->nullable()->change();
         });
     }
 
@@ -26,7 +26,7 @@ class MakeDescriptionNullableOnRecipesTable extends Migration
     public function down()
     {
         Schema::table('recipes', function (Blueprint $table) {
-            $table->string('description')->change();
+            $table->longText('description')->change();
         });
     }
 }

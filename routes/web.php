@@ -23,6 +23,11 @@ Route::get('signOut', [CustomAuthController::class, 'signOut'])->name('signOut')
 Route::get('signOut', [CustomAuthController::class, 'signOut'])->name('signOut');
 //Route::resource('recipes', 'App\Http\Controllers\RecipeController');
 ///Route::get('recipes', [RecipeController::class, 'index'])->
+
+//Route::group(['middleware' => 'auth'], function()
+//{
+//   Route::get('recipes/create', 'CustomAuthController@index');
+//});
 Route::get('recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
 Route::post('recipes/create', [RecipeController::class, 'store'])->name('recipes.store');
 Route::get('recipes/list', [RecipeController::class, 'index'])->name('recipes.index');

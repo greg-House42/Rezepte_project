@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class File extends Model
 {
     use HasFactory;
-    protected $fillable = ["name", "extension", "file_path", "created_at", "updated_at"];
+    protected $fillable = ["name", "extension", "path", "file_path", "created_at", "updated_at"];
 
     public function recipe(): BelongsTo
     {
