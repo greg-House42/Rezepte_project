@@ -36,20 +36,20 @@
             <ul class="navbar-nav">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="{{ route('login') }}"><i class="text-lg font-bold text-blue-800 text">Login</i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register-user') }}">Registrierung (Für neue Nutzer)</a>
+                        <a class="nav-link" href="{{ route('register-user') }}"><i class="text-lg font-bold text-blue-800 text">Registrierung (Für neue Nutzer)</i></a>
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signOut') }}">Logout</a>
+                        <a class="nav-link" href="{{ route('signOut') }}"><i class="text-lg font-bold text-blue-800 text">Logout</i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/recipes/list">Rezepte zum nachkochen</a>
+                        <a class="nav-link" href="/recipes/list"><i class="text-lg font-bold text-blue-800 text">Rezepte zum nachkochen</i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/recipes/create">Rezepte hochladen</a>
+                        <a class="nav-link" href="/recipes/create"><i class="text-lg font-bold text-blue-800 text">Rezepte hochladen</i></a>
                     </li>
                 @endguest
             </ul>
