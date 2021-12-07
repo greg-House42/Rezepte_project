@@ -11,9 +11,9 @@
                         <div class="row justify-content-center" align="center">
                             <div class="container mx-auto">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-4">
+                                    <div class="col-md-16">
                                         <div class="card">
-                                            <h6 class="text-4xl font-bold text-white text"><u><i>Rezepte hochladen:</u></i></h6>
+                                            <h6 class="text-4xl font-bold text-white text"><u><i>Rezepte hochladen:</i></u></h6>
                                                 <div class="card-body">
                                                     <form action="{{ route('recipes.store') }}" method="post" enctype="multipart/form-data">
                                                         <!-- Add CSRF Token -->

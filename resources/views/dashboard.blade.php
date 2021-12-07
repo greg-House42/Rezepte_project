@@ -25,9 +25,15 @@
 
 <body class="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
 <header class="max-w-lg mx-auto">
-    <a href="{{ route('login') }}">
+    @guest
+        <a href="{{ route('login') }}">
+            <h1 class="text-4xl font-bold text-white text-center">Micha's Rezept-Ecke</h1>
+        </a>
+    @else
+    <a href="list">
         <h1 class="text-4xl font-bold text-white text-center">Micha's Rezept-Ecke</h1>
     </a>
+    @endif
 </header>
 <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
     <div class="container">
