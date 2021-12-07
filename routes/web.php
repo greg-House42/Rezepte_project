@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
+
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth:sanctum']], function()
     Route::get('recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
     Route::post('recipes/create', [RecipeController::class, 'store'])->name('recipes.store');
     Route::get('recipes/list', [RecipeController::class, 'index'])->name('recipes.index');
+    Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 });
 Route::get('/', function () {
     return view('welcome');
