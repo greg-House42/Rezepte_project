@@ -28,8 +28,8 @@ Route::group(['middleware' => ['auth:sanctum']], function()
     Route::post('recipes/create', [RecipeController::class, 'store'])->name('recipes.store');
     Route::get('recipes/list', [RecipeController::class, 'index'])->name('recipes.index');
     Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
-    //Route::get('recipes/htmlPdf', [HTMLPDFController::class, 'index'])->name('htmlPdf.index');
-    Route::get('recipes/htmlPdf', [HTMLPDFController::class, 'htmlToPdf'])->name('recipes.htmlPdf');
+    // Route::get('recipes/htmlPdf', [HTMLPDFController::class, 'index'])->name('htmlPdf.index');
+    Route::get('recipes/htmlPdf', [HTMLPDFController::class, 'htmlToPdf'])->name('recipes.htmlToPdf');
 });
 Route::get('/', function () {
     return view('welcome');

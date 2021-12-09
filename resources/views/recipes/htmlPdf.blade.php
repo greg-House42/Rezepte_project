@@ -17,15 +17,9 @@
                 <h1>Rezept</h1>
             </div>
             <p>
-               Lorem ipsum!
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <form action="{{ route('recipes.htmlToPdf') }}" method="get" enctype="multipart/form-data">
+                   lorem ipsum
+                </form>
             </p>
         </body>
     </html>
