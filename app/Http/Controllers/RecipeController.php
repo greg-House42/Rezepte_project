@@ -86,7 +86,6 @@ class RecipeController extends Controller
 
                 $file->recipe_id = $recipe->id;
                 $file->path = $path;
-                $file->file_path = $filename;
                 $file->name = $name;
                 $file->extension = $extension;
 
