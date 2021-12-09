@@ -21,15 +21,15 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signOut', [CustomAuthController::class, 'signOut'])->name('signOut');
-Route::get('signOut', [CustomAuthController::class, 'signOut'])->name('signOut');
+Route::post('signOut', [CustomAuthController::class, 'signOut'])->name('signOut');
 Route::group(['middleware' => ['auth:sanctum']], function()
 {
     Route::get('recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
     Route::post('recipes/create', [RecipeController::class, 'store'])->name('recipes.store');
     Route::get('recipes/list', [RecipeController::class, 'index'])->name('recipes.index');
     Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
-    Route::get('recipes/htmlPdf', [RecipeController::class, 'pdf'])->name('recipes.pdf');
-    Route::get('recipes/htmlPdf', [RecipeController::class, 'htmlPdf'])->name('recipes.htmlPDF');
+    //Route::get('recipes/htmlPdf', [HTMLPDFController::class, 'index'])->name('htmlPdf.index');
+    Route::get('recipes/htmlPdf', [HTMLPDFController::class, 'htmlToPdf'])->name('recipes.htmlPdf');
 });
 Route::get('/', function () {
     return view('welcome');
