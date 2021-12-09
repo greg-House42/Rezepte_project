@@ -24,12 +24,22 @@ class RecipeController extends Controller
         return view('recipes.list', ['recipes' => $recipe]);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
     public function pdf()
     {
         $recipe = Recipe::all();
         return view('recipes.htmlPdf', ['recipes'=>$recipe]);
     }
 
+    /**
+     * generate PDF file from blade view.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function htmlPdf()
     {
         // selecting PDF view

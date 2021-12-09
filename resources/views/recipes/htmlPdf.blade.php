@@ -27,7 +27,7 @@
                     <th>Action</th>
                     </thead>
                     <tbody>
-                        <form action="{{ route('recipes.htmlPdf') }}" method="get" enctype="multipart/form-data">
+                        <form action="{{ route('recipes.index') }}" method="get" enctype="multipart/form-data">
                             <!-- Add CSRF Token -->
                             @csrf
                                 @foreach($recipes as $recipe)
