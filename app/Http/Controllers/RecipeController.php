@@ -21,7 +21,6 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::all();
         return view('recipes.list', ['recipes' => $recipe]);
-
     }
 
     /**
