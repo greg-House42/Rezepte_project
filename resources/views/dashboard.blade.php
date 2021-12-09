@@ -58,7 +58,7 @@
                         <a class="nav-link" href="/recipes/create"><i class="text-lg font-bold text-blue-800 text">Rezepte hochladen</i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pdf"><i class="text-lg font-bold text-blue-800 text">Rezepte als PDF</i></a>
+                        <a class="nav-link" href="/recipes/htmlPdf"><i class="text-lg font-bold text-blue-800 text">Rezepte als PDF</i></a>
                     </li>
                 @endguest
             </ul>

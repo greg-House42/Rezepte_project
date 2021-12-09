@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use PDF;
 use Illuminate\Support\Facades\File as IlluminateFile;
 use Illuminate\Support\Facades\Storage;
 use Mimey\MimeTypes;
@@ -21,6 +22,21 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::all();
         return view('recipes.list', ['recipes' => $recipe]);
+    }
+
+    public function pdf()
+    {
+        $recipe = Recipe::all();
+        return view('recipes.htmlPdf', ['recipes'=>$recipe]);
+    }
+
+    public function htmlPdf()
+    {
+        // selecting PDF view
+        $pdf = PDF::loadView('recipes.htmlPdf');
+
+        // download pdf file
+        return $pdf->download('pdfview.pdf');
     }
 
     /**
