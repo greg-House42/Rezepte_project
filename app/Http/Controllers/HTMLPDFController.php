@@ -16,7 +16,7 @@ class HTMLPDFController extends Controller
     public function index()
     {
         $recipe = Recipe::all();
-        $this->htmlToPdf();
+
         return view('recipes.htmlPdf', ['recipes'=>$recipe]);
     }
 
