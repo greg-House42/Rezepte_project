@@ -20,7 +20,7 @@ class RecipeController extends Controller
     public function index()
     {
         $recipe = Recipe::all();
-        return view('recipes.htmlPdf', ['recipes' => $recipe]);
+        return view('recipes.list', ['recipes' => $recipe]);
     }
 
 
