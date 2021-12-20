@@ -1,5 +1,6 @@
 @extends('dashboard')
 
+
 @section('content')
     @guest
         <script>window.location = "/login";</script>
