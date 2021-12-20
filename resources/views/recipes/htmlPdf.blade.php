@@ -35,7 +35,7 @@
                                 <p class align="center">{{$recipe->description}}</p></br>
                             </div>
                             <div class="form-group">
-                                </br><p class="text-2xl font-bold text-white text-center">Rezept-Nummer:    </p>
+                                </br><p class="text-2xl font-bold text-white" align="center">Rezept-Nummer:    </p>
                                 <p class align="center"><u>{{$recipe->id}}</u></p></br>
                             </div>
                             <div class="form-group">
