@@ -14,7 +14,7 @@
     "axios": "^0.21",
     "laravel-mix": "^6.0.6",
     "lodash": "^4.17.19",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.4",
     "tailwindcss": "^2.2.19"
   },
   "name": "Rezepte_project",
@@ -24,7 +24,6 @@
   "directories": {
     "test": "tests"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/greg-House42/Rezepte_project.git"

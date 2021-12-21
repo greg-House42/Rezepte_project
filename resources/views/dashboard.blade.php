@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         .body-bg {
@@ -79,27 +79,27 @@
     </style>
     <div id="aussendiv">
         <div class="innendiv">
-            <div class="w-full rounded hover:shadow-2xl">
+            <div class="w-full rounded hover:shadow-xl">
                 <p class="text-2xl font-bold text-white text">Kuchen:    </p>
-                <img class src="https://1.bp.blogspot.com/-M5n_2ZCW-NY/VgxC7-GgkDI/AAAAAAAADDU/5ykyc86TcuI/s1600/oreo%2Bkuchen.jpg" border="50" width="250" height="400" alt="Kuchen1">
+                <img src="https://1.bp.blogspot.com/-M5n_2ZCW-NY/VgxC7-GgkDI/AAAAAAAADDU/5ykyc86TcuI/s1600/oreo%2Bkuchen.jpg" border="50" width="250" height="400" alt="Kuchen1">
             </div>
         </div>
         <div class="innendiv">
-            <div class="w-full rounded hover:shadow-2xl">
+            <div class="w-full rounded hover:shadow-xl">
                 <p class="text-2xl font-bold text-white text">Nachspeise:    </p>
-                <img class src="https://img.chefkoch-cdn.de/rezepte/201681085409610/bilder/19627/crop-600x400/amarettini-kirsch-nachspeise.jpg" border="50" width="250" height="400" alt="Kuchen1">
+                <img src="https://img.chefkoch-cdn.de/rezepte/201681085409610/bilder/19627/crop-600x400/amarettini-kirsch-nachspeise.jpg" border="50" width="250" height="400" alt="Kuchen1">
             </div>
         </div>
         <div class="innendiv">
-            <div class="w-full rounded hover:shadow-2xl">
+            <div class="w-full rounded hover:shadow-xl">
                 <p class="text-2xl font-bold text-white text">Vegan:    </p>
-                <img class src="https://www.agdaily.com/wp-content/uploads/2021/01/bg-vegan-wording-001-xamnesiacx84-1000x400-1610935246.jpg" border="50" width="250" height="400" alt="Vegan1">
+                <img src="https://www.agdaily.com/wp-content/uploads/2021/01/bg-vegan-wording-001-xamnesiacx84-1000x400-1610935246.jpg" border="50" width="250" height="400" alt="Vegan1">
             </div>
         </div>
         <div class="innendiv">
-            <div class="w-full rounded hover:shadow-2xl">
+            <div class="w-full rounded hover:shadow-xl">
                 <p class="text-2xl font-bold text-white text">Mit Fleisch:    </p>
-                <img class src="https://assets.afcdn.com/story/20201209/2100263_w944h530c1cx600cy400cxt0cyt0cxb1200cyb800.webp" border="50" width="250" height="400" alt="MitFleisch1">
+                <img src="https://assets.afcdn.com/story/20201209/2100263_w944h530c1cx600cy400cxt0cyt0cxb1200cyb800.webp" border="50" width="250" height="400" alt="MitFleisch1">
             </div>
         </div>
     </div>

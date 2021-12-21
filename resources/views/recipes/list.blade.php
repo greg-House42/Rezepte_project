@@ -60,7 +60,7 @@
                                                     </p>
                                                 </tr>
                                                 <form action="{{ route('recipes.export') }}" method="get" enctype="multipart/form-data">
-                                                    <button type="button" href="{{ route('recipes.export') }}">In PDF exportieren</button>
+                                                    <button id="{{$recipe->id}}" type="button" href="{{ route('recipes.export') }}">In PDF exportieren</button>
                                                 </form>
                                             @endforeach
                                         </form>
