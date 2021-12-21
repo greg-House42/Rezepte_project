@@ -33,4 +33,9 @@ class HTMLPDFController extends Controller
         // download pdf file
         return $pdf->download('pdfview.pdf');
     }
+
+
+
+
+
 }

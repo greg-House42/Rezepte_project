@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        View::share('key', 'value');
+        //View::share('key', 'value');
         Schema::defaultStringLength(191);
 
         $recipes=DB::table('recipes')->get();

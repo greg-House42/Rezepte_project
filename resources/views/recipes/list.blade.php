@@ -59,6 +59,9 @@
                                                         </div>
                                                     </p>
                                                 </tr>
+                                                <form action="{{ route('recipes.export') }}" method="get" enctype="multipart/form-data">
+                                                    <button type="button" href="{{ route('recipes.export') }}">In PDF exportieren</button>
+                                                </form>
                                             @endforeach
                                         </form>
                                     </div>

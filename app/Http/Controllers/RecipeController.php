@@ -104,6 +104,12 @@ class RecipeController extends Controller
 
     }
 
+
+    public function export() {
+
+        return redirect(route('recipes.htmlToPdf'));
+    }
+
     /**
      * Display the specified resource.
      *
