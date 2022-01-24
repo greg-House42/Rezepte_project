@@ -105,9 +105,17 @@ class RecipeController extends Controller
     }
 
 
-    public function export() {
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
 
-        return redirect(route('recipes.htmlToPdf'));
+    public function export(int $id) {
+
+        //return redirect(route('recipes.htmlToPdf'));
+         return redirect()->route('recipes.htmlToPdf', [$id]);
     }
 
     /**
